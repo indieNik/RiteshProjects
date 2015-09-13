@@ -1,0 +1,28 @@
+package com.rit.inherit;
+
+public class OrderItem extends StockItems {
+	int noOfiteams;
+
+	/**
+	 * @param id
+	 * @param name
+	 * @param price
+	 * @param noOfiteams
+	 */
+	OrderItem(int id, String name, int price, int noOfiteams) {
+		super(id, name, price);
+		this.noOfiteams = noOfiteams;
+	}	
+	
+	public OrderItem() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return "OrderItem ["+" id=" + id + ", name="
+				+ name + ", price=" + price + ", noOfiteams=" + noOfiteams +  "]";
+	}
+}
