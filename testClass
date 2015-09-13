@@ -1,0 +1,58 @@
+package com.rit.inherit;
+
+
+class Test {
+	
+	public static void main(String[] args) {		
+		
+		Customer customer[] = new Customer[3];
+		customer[0] = new Customer("jamie");
+		customer[1] = new Customer("bill");
+		customer[2] = new Customer("joe");
+		
+		OrderItem items[] = new OrderItem[5];
+		items[0] = new OrderItem(1, "milk", 40, 5);
+		items[1] = new OrderItem(2, "chicken", 120, 10);
+		items[2] = new OrderItem(3, "apple", 15, 15);
+		items[3] = new OrderItem(4, "egg", 50, 25);
+		items[4] = new OrderItem(5, "orange", 10, 15);
+
+		OrderItem po1[] = new OrderItem[3];
+		po1[0] = new OrderItem(1, "milk", 40, 2);
+		po1[1] = new OrderItem(2, "chicken", 120, 2);
+		po1[2] = new OrderItem(4, "egg", 50, 12);
+				
+		OrderItem po2[] = new OrderItem[2];
+		po2[0] = new OrderItem(3, "apple", 15, 5);
+		po2[1] = new OrderItem(5, "orange", 10, 10);
+		
+		OrderItem po3[] = new OrderItem[2];
+		po3[0] = new OrderItem(2, "chicken", 120, 5);
+		po3[1] = new OrderItem(3, "apple", 15, 10);
+		
+		PurchaseOrder purchaseOrder = new PurchaseOrder();
+		System.out.println("Orders to b shipped :");
+		customer[0].placeOrder(1, po1,purchaseOrder);
+		customer[1].placeOrder(2, po2,purchaseOrder);
+		customer[0].placeOrder(3, po3,purchaseOrder);
+		/*purchaseOrder.toBeShipped(1, customer[0], po1);
+		purchaseOrder.toBeShipped(2, customer[1], po2);
+		purchaseOrder.toBeShipped(3, customer[0], po3);		*/	
+		
+		System.out.println("Shipped Orders:");
+		customer[0].shipOrder(1, po1, items);
+		customer[1].shipOrder(2, po2, items);
+		customer[0].shipOrder(3, po3, items);
+		/*purchaseOrder.shipOrder(2, customer[1], po2, items);
+		purchaseOrder.shipOrder(3, customer[0], po3, items);	*/					
+		
+		customer[0].salesCust();
+		
+		
+	
+		
+		/*for (int i = 0; i < items.length; i++) {
+			System.out.println("after orders: "+ items[i]);
+		}*/			
+	}
+}
