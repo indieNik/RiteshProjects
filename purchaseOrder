@@ -1,0 +1,61 @@
+package com.rit.inherit;
+
+public class PurchaseOrder extends OrderItem {
+	int poNum = 0;
+	String shipDate = null;
+	String oderDate= null;
+	String customer= null;	
+	OrderItem pitems, sItems;	
+
+	void initPO(int poNo, String customer, String oderDate, OrderItem oitems, OrderItem itemsa) {
+		// TODO Auto-generated method stub
+		this.poNum = poNo;
+		this.customer = customer;
+		this.oderDate = oderDate;
+		this.pitems = oitems;		
+		this.sItems = itemsa;	
+		setShipDate("12-09-2015");
+		sItems.noOfiteams = sItems.noOfiteams - pitems.noOfiteams;
+	}
+	
+	void setShipDate(String shipDate) {
+		this.shipDate = shipDate;
+	}
+	public String getShipDate() {
+		return shipDate;
+	}
+	
+	void shipOrder(int poId, String customer, OrderItem[] po, OrderItem[] items) {
+		// TODO Auto-generated method stub			
+		for (int i = 0; i < items.length; i++) {
+			for (int j = 0; j < po.length; j++) {
+				if (items[i].id == po[j].id) {
+					initPO(poId, customer, "07-09-2015", po[j],items[i]);
+					/*this.customer.total=this.customer.total+customer.total;
+					this.customer.orderItem = po[j];*/
+				}
+			}
+		}
+		System.out.println("oder for "+customer+": poID = "+poId+" oderDate = 07-09-2015"+" shipDate = "+getShipDate());
+					
+	} 		
+	
+	void dis() {
+		// TODO Auto-generated method stub
+		System.out.println("oder for "+customer+": poID = "+poNum+" oderDate = "+oderDate+" shipDate = "+shipDate);					
+	}
+		
+	void toBeShipped(int poId, String customer, OrderItem[] po) {
+		// TODO Auto-generated method stub
+		System.out.println("order for "+customer+": poID = "+poId+" oderDate = 07-09-2015");
+		for (int i = 0; i < po.length; i++) {
+			System.out.println(po[i]);
+		}
+		System.out.println("");
+	}
+	
+	void salesByCust(String customer) {
+		// TODO Auto-generated method stub
+		System.out.println(this.customer + pitems);
+	}
+}
