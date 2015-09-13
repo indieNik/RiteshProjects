@@ -1,0 +1,35 @@
+package com.rit.inherit;
+
+public class Customer extends PurchaseOrder {
+	String custName;
+	int total=0;
+	OrderItem[] orderItem;
+	PurchaseOrder purchaseOrder ;
+	
+	Customer(String custName) {		
+		this.custName = custName;		
+	}
+	
+	void placeOrder(int poId, OrderItem[] po, PurchaseOrder purchaseOrder) {
+		// TODO Auto-generated method stub
+		this.purchaseOrder=purchaseOrder;
+		this.purchaseOrder.toBeShipped(poId, custName, po);
+	}
+	
+	void shipOrder(int poId,OrderItem[] po, OrderItem[] items){
+		this.orderItem = po;
+		purchaseOrder.shipOrder(poId,custName , po, items);		
+	}
+		
+	void salesCust() {
+		for (OrderItem o : orderItem) {
+			System.out.println(o);
+		}
+		
+	}
+	@Override
+	public String toString() {
+		return "custName=" + custName + ", orderItem=" + orderItem
+				+ ", total=" + total ;
+	}
+}
